@@ -168,7 +168,7 @@ namespace FlooringProgram.Data.DataBase_Repos
 
         private Order PopulateFromDataReader(SqlDataReader dr)
         {
-            
+
             Order order = new Order();
             DateTime orderdate = new DateTime();
 
@@ -180,15 +180,14 @@ namespace FlooringProgram.Data.DataBase_Repos
             order.LaborCostPerSqFt = (decimal) dr["LaborCostPerSqFt"];
             order.TaxRate = (decimal) dr["TaxRate"];
             order.OrderDate = (DateTime) dr["OrderDate"];
-           
-           //order.OrderDate = dr.GetDateTime(12);
+
+            //order.OrderDate = dr.GetDateTime(12);
 
             order.CustomerName = dr["CustomerName"].ToString();
             order.TotalLaborCost = (decimal) dr["TotalLaborCost"];
             order.TotalMaterialCost = (decimal) dr["TotalMaterialCost"];
             order.TotalTax = (decimal) dr["TotalTax"];
             order.Total = (decimal) dr["Total"];
-           
 
             return order;
         }
