@@ -60,10 +60,10 @@ namespace FlooringProgram.Data.DataBase_Repos
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = "Update [Order]" +
                                   "set CustomerName = @CustomerName, State = @State, TaxRate = @TaxRate," +
-                                  "ProductType = @ProductType, Area = @Area, CostPerSqFt = @CostPerSqFt" +
+                                  "ProductType = @ProductType, Area = @Area, CostPerSqFt = @CostPerSqFt," +
                                   "LaborCostPerSqFt = @LaborCostPerSqFt, TotalMaterialCost = @TotalMaterialCost," +
                                   "TotalLaborCost = @TotalLaborCost, TotalTax = @TotalTax,Total = @Total" +
-                                  "where CustomerNumber = @CustomerNumber and OrderDate = @OrderDate";
+                                  " where OrderNumber = @OrderNumber and OrderDate = @OrderDate";
 
                 cmd.Connection = cn;
                 cmd.Parameters.AddWithValue("@OrderNumber", entry.OrderNumber);
@@ -155,7 +155,7 @@ namespace FlooringProgram.Data.DataBase_Repos
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = "Delete from [Order]" +
-                                  "where CustomerNumber = @CustomerNumber and OrderDate = @OrderDate";
+                                  "where OrderNumber = @OrderNumber and OrderDate = @OrderDate";
 
                 cmd.Connection = cn;
                 cmd.Parameters.AddWithValue("@OrderNumber", entry.OrderNumber);
