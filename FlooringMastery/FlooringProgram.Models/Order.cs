@@ -1,4 +1,6 @@
-﻿namespace FlooringProgram.Models
+﻿using System;
+
+namespace FlooringProgram.Models
 {
     public class Order
     {
@@ -14,6 +16,7 @@
         public decimal TotalLaborCost { get; set; }
         public decimal TotalTax { get; set; }
         public decimal Total { get; set; }
-       
+        public DateTime OrderDate { get; set; }
+        
     }
 }

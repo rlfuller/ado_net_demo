@@ -39,7 +39,8 @@ namespace FlooringMastery.WorkFlow
 
                 if (success)
                 {
-                    output_date = date.ToString("MMddyyyy"); 
+                    output_date = date.ToString("MM/dd/yyyy"); //for database
+                   // output_date = date.ToString("MMddyyyy"); //for filemode
                     return output_date;
                 }
 

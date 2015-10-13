@@ -85,7 +85,7 @@ namespace FlooringProgram.BLL
                 response.Message = "Account Added!";
                 response.Data = new List<Order> { responseOrder }; 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 response.Success = false;
                 response.Message = "ERROR, Please try again later"; 

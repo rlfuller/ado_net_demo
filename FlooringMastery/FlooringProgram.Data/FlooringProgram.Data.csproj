@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\Settings.cs" />
+    <Compile Include="DataBase Repos\OrderDBRepo.cs" />
+    <Compile Include="DataBase Repos\ProductDBRepo.cs" />
+    <Compile Include="DataBase Repos\TaxRateDBRepo.cs" />
     <Compile Include="File Repos\OrderFileModeRepo.cs" />
     <Compile Include="Mock Repos\OrderMockModeRepo.cs" />
     <Compile Include="File Repos\ProductFileModeRepo.cs" />
