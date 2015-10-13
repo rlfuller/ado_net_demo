@@ -16,6 +16,7 @@ namespace FlooringProgram.Data.DataBase_Repos
         public Order Add(Order entry, string date)
         {
             int numRows;
+            
             using (SqlConnection cn = new SqlConnection(Settings.ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand();
@@ -53,6 +54,7 @@ namespace FlooringProgram.Data.DataBase_Repos
         public void Edit(Order entry, string date)
         {
             int numRows;
+            
             using (SqlConnection cn = new SqlConnection(Settings.ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand();
@@ -88,6 +90,8 @@ namespace FlooringProgram.Data.DataBase_Repos
         {
             List<Order> orders = new List<Order>();
 
+            date = date.Substring(0,2) + "/" + date.Substring(2,2) +"/" + date.Substring(4);
+
             using (SqlConnection cn = new SqlConnection(Settings.ConnectionString))
             {
                 DateTime myDate = new DateTime();
@@ -115,15 +119,18 @@ namespace FlooringProgram.Data.DataBase_Repos
 
         public Order GetOne(int id, string date)
         {
-                Order order = new Order();
+            Order order = new Order();
+            date = date.Substring(0,2) + "/" + date.Substring(2,2) +"/" + date.Substring(4);
+            DateTime myDate = new DateTime();
+            myDate = Convert.ToDateTime(date);
 
-                using (SqlConnection cn = new SqlConnection(Settings.ConnectionString))
+            using (SqlConnection cn = new SqlConnection(Settings.ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandText = "select * from [Order] where OrderDate = @OrderDate and OrderNumber = @OrderNumber";
 
                     cmd.Connection = cn;
-                    cmd.Parameters.AddWithValue("@OrderDate", date);
+                    cmd.Parameters.AddWithValue("@OrderDate", myDate);
                     cmd.Parameters.AddWithValue("@OrderNumber", id);
 
                     cn.Open();
